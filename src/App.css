@@ -7,12 +7,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -40,7 +34,7 @@
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
+  width: 270px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -59,9 +53,15 @@
   display: block;
 }
 
+.sidenav a.active {
+  background-color: red;
+  color: white;
+}
+
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: #f1f1f1;
+.sidenav a:hover:not(.active) {
+  color: red;
+  color: white;
 }
 
 /* Style page content */
@@ -70,7 +70,25 @@
   padding: 0px 10px;
 }
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+div.content {
+  margin-left: 300px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 800px) {
+  .sidenav {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidenav a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidenav {
+    text-align: center;
+    float: none;
+  }
 }
